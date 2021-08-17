@@ -50,8 +50,8 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 `git log -p --cc` - показывает каким образом был разрешен конфликт
 `git log --stat` - краткая статистика по каждой версии
 `git log --pretty=oneline` - изменяет формат вывода, доступные варианты(`short`, `full`, `fuller`)
-`git log --pretty=format:"%h - %an, %ar : %s"` - форматируемый вывод лога
-`git log --pretty=format:"%h %s" --graph` - графическое ветвление
+`git log --pretty=format: "%h - %an, %ar : %s"` - форматируемый вывод лога
+`git log --pretty=format: "%h %s" --graph` - графическое ветвление
 `git log --since=2.weeks` - вывод логов за последние две недели
 `git log S<string>` - вывод лога только по опр. строке
 `git log --author` - выборка по автору, для одновременного использования параметров выбоки `--all-match`
@@ -69,15 +69,6 @@ git clone https://github.com/libgit2/libgit2 mylibgit
 `git log -G ZLIB_BUF_MAX --oneline` - аналогично предыдущей команде, но _-G_ позволяет искать по регулярдному выражению
 `git log -L :git_deflate_bound:zlib.c` - вывод всех изменений функции _git-deflate-bound_ в файле _zlib.c_
 `git log -L '/unsigned long git_deflate_bound/',/^}/:zlib.c'` - аналогично предыдущему, но через регулярное выражение, можно использовать интервал строк или номер строки
-
-`bestpractice`
-
-```sh
-git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-git lg
-[alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-```
 
 #### git amend
 

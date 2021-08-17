@@ -14,9 +14,12 @@ _ca82a6dff817ec66f44342007202690a93763949_
 `git remote add origin https://github.com/schacon/simplegit-progit`
 
 Создает запись в файле _.git/config_, следующего вида:
-_[remote origin]_
-  _url = https://github.com/schacon/simplegit-progit_
-  _fetch = +refs/heads/*:refs/remotes/origin/*_
+
+```conf
+[remote origin]
+  url = https://github.com/schacon/simplegit-progit
+  fetch = +refs/heads/*:refs/remotes/origin/*
+```
 
 Можно добавить в описание удаленного репозитория и отдельные ветки например _master_,_experement_
   _fetch = +refs/heads/master:refs/remotes/origin/mymaster_
@@ -27,18 +30,22 @@ _[remote origin]_
 только:
   _fetch = +refs/heads/qa/*:refs/remotes/origin/qa/*_
 
-#### Отправка через ссылки:
+#### Отправка через ссылки
+
 Для выполнение _push_ с применением ссылок, нужно привести описание ветки к следующему виду:
-_[remote origin]_
-  _url = https://github.com/schacon/simplegit-progit_
-  _fetch = +refs/heads/*:refs/remotes/origin/*_
-  _push = refs/heads/master:refs/heads/qa/master_
+
+```conf
+[remote origin]
+  url = https://github.com/schacon/simplegit-progit
+  fetch = +refs/heads/*:refs/remotes/origin/*
+  push = refs/heads/master:refs/heads/qa/master
+```
 
 В результате по команде `git push origin`, по умолчанию отправляться локальная ветка `master` в ветку `qa/master` на  удаленном сервере
 
+#### Ликвидация ссылок
 
-#### Ликвидация ссылок:
-Для очистки ветки на удаленном сервере:
+Для очистки ветки на удаленном сервере, delete remote branch:
 `git push origin :topic`
 
 Так как формат имеет вид `<источник>:<цель>`, опуская _источник_, команда интерпретируется как приведение тематичесткой ветки на удаленном сервере, к пустому состоянию
